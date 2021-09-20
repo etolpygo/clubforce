@@ -12,6 +12,7 @@ class RawGradesController {
         );
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($data);
+        return $response;
     }
 
 }

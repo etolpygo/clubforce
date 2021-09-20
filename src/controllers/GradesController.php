@@ -1,5 +1,5 @@
 <?php
-use Src\models\Grade;
+use models\Grade;
 
 class GradesController {
 
