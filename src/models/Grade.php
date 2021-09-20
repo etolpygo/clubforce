@@ -9,7 +9,7 @@ class Grade
 
     public function getRoundedGrade(): int 
     {
-        return (ceil( $this->grade / 5 ) * 5);
+        return (round( $this->grade / 5 ) * 5);
     }
 
     public function getName(): string
