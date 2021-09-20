@@ -1,9 +1,15 @@
 version: '3.8'
 services:
   php-apache-environment:
+    build: .
     container_name: php-apache
-    image: php:8.0-apache
     volumes:
       - ./src:/var/www/html/
     ports:
       - 8000:80
+  # composer:
+  #   image: composer:2
+  #   environment:
+  #     - COMPOSER_CACHE_DIR=/var/www/composer/cache
+  #   volumes:
+  #     - ./src:/var/www/html/
