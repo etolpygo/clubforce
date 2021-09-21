@@ -7,9 +7,3 @@ services:
       - ./src:/var/www/html/
     ports:
       - 8000:80
-  # composer:
-  #   image: composer:2
-  #   environment:
-  #     - COMPOSER_CACHE_DIR=/var/www/composer/cache
-  #   volumes:
-  #     - ./src:/var/www/html/
