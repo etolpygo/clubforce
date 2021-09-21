@@ -18,10 +18,10 @@ class GradesController {
 
     #[Route("/grades/", methods: ["GET"])]
     public function index() { 
-        
+
         $result = array();
         foreach($this->grades as $grade) {
-            $result[] = array('name' => $grade->getName(), 'grade' => $grade->getRoundedGrade(), 'pass' => $grade->pass());
+            $result[] = $grade->to_array();
         }
 
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
@@ -32,8 +32,18 @@ class GradesController {
 
     #[Route("/grades/{name}", methods: ["GET"])]
     public function get($name) { 
-        $response['status_code_header'] = 'HTTP/1.1 200 OK';
-        $response['body'] = json_encode($result);
+
+        $response['status_code_header'] = 'HTTP/1.1 404 Not Found';
+
+        foreach($this->grades as $grade) {
+            if ($grade->getName() == $name) {
+                $result = $grade->to_array();
+                $response['status_code_header'] = 'HTTP/1.1 200 OK';
+                $response['body'] = json_encode($result);
+                break;
+            }
+        }
+
         return $response;
      }
 

@@ -9,7 +9,7 @@ class Grade
 
     public function getRoundedGrade(): int 
     {
-        return (round( $this->grade / 5 ) * 5);
+        return (round($this->grade / 5) * 5);
     }
 
     public function getName(): string
@@ -20,6 +20,15 @@ class Grade
     public function pass(): bool
     {
         return ($this->getRoundedGrade() >= 35);
+    }
+
+    public function to_array(): array
+    {
+        return array(
+            'name' => $this->getName(), 
+            'grade' => $this->getRoundedGrade(), 
+            'pass' => $this->pass()
+        );
     }
 
 }
