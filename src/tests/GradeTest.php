@@ -1,6 +1,8 @@
 <?php 
-
 declare(strict_types=1);
+
+require 'models/Grade.php';
+
 use PHPUnit\Framework\TestCase;
 
 final class GradeTest extends TestCase
