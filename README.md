@@ -8,6 +8,4 @@ any other request results in 404 error.
 
 `docker exec -t -i php-apache /bin/bash` starts bash inside the running container
 
-`vendor/bin/phpunit tests/ -vvv` in the container, run phpunit tests
-
-`vendor/bin/phpunit --coverage-text tests/ -vvv` output test coverage results as text
+`vendor/bin/phpunit tests/ -vvv` in the container, run phpunit tests, verbose output

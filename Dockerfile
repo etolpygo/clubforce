@@ -16,10 +16,6 @@ RUN mv composer.phar /usr/local/bin/composer
 #PHPUNIT install from composer.json
 RUN composer install
 
-#PCOV
-RUN pecl install pcov
-COPY php.ini /usr/local/etc/php/php.ini
-
 #APACHE CONFIG
 COPY demo.apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite &&\
