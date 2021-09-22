@@ -23,9 +23,7 @@ if ($uri[1] == 'grades') {
     
     $controller = new GradesController();
 
-    $name = isset($uri[2]) ? preg_replace( '/[\W]/', '', $uri[2]) : '';
-
-    $response = (strlen($name) > 0) ? $controller->get($name) : $controller->index();
+    $response = $controller->index();
 
 }
 else {
