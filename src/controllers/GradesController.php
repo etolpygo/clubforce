@@ -5,8 +5,7 @@ class GradesController {
 
     private $grades;
 
-    public function __construct()
-    {
+    public function __construct(){
         $response = file_get_contents('request.json');
         $response = json_decode($response);
 
@@ -17,7 +16,8 @@ class GradesController {
     }
 
     #[Route("/grades/", methods: ["GET"])]
-    public function index() { 
+    public function index(): array
+    { 
 
         $result = array();
         foreach($this->grades as $grade) {
@@ -31,7 +31,8 @@ class GradesController {
 
 
     #[Route("/grades/{name}", methods: ["GET"])]
-    public function get($name) { 
+    public function get($name): array
+    { 
 
         $response['status_code_header'] = 'HTTP/1.1 404 Not Found';
 
