@@ -18,7 +18,8 @@ final class GradesControllerTest extends TestCase
         $this->http_client = null;
     }
 
-    public function testGETRequestBad() {
+    public function testBadRequests(): void
+    {
         try {
             $response = $this->http_client->request('GET', 'grades');   
         }
@@ -27,6 +28,28 @@ final class GradesControllerTest extends TestCase
             $responseBodyAsString = $response->getBody()->getContents();
             $this->assertEquals("Only POST method is allowed", $responseBodyAsString);
         }
+    }
+
+    public function testPOSTRequest(): void
+    {  
+        $request_body = [
+            [ 'name' => 'John', 'grade' => 53 ],
+            [ 'name' => 'Jane', 'grade' => 68 ],
+            [ 'name' => 'Emma', 'grade' => 32 ],
+            [ 'name' => 'Sophia', 'grade' => 39 ]
+        ];
+
+        $response = $this->http_client->request(
+            'POST', 
+            'grades', 
+            ['json' => $request_body]);
+
+        echo($response->getStatusCode());
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $contentType = $response->getHeaders()["Content-Type"][0];
+        $this->assertEquals("application/json; charset=UTF-8", $contentType);
+
     }
 
 }
