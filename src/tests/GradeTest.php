@@ -59,4 +59,19 @@ final class GradeTest extends TestCase
 
     }
 
+    /**
+     * @covers Grade::__construct
+     */
+    public function testConstructor(): void
+    {
+        $valid_grade = new Grade("Michael", 12);
+        $this->assertInstanceOf(Grade::class, $valid_grade);
+
+        $this->expectException(TypeError::class);
+        $invalid_grade1 = new Grade("Sue", "54");
+
+        $this->expectException(TypeError::class);
+        $invalid_grade2 = new Grade(NAN, false);
+    }
+
 }
