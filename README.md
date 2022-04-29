@@ -1,5 +1,5 @@
 # Clubforce Takehome Test
-A super simple API that accepts POST requests containing a list of students' names and grades in json format, and outputs processed grades in json format.
+A simple test API that accepts POST requests containing a list of students' names and grades in json format, and outputs processed grades in json format.
 
 Built using a base PHP8/Apache Docker image with a few additions/modifications. PHPUnit tests can be run inside the container.
 
