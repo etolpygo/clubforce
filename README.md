@@ -4,7 +4,7 @@ A simple test API that accepts POST requests containing a list of students' name
 Built using a base PHP8/Apache Docker image with a few additions/modifications. PHPUnit tests can be run inside the container.
 
 ## Build
-From the repo's root directory, `docker-compose up` builds and starts the container. Initial build takes a while, mostly because of the PHPUnit installation.
+From the repo's root directory, `docker-compose up` builds and starts the container. 
 
 ## API
 Once the container is up and running, requests can be sent via Postman, for example.
